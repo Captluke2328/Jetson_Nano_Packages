@@ -1,0 +1,25 @@
+sudo apt-get install software-properties-common
+
+# adding python repository 
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+
+# install python 3.7
+sudo apt install python3.7
+
+# Update Alternatives
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
+
+# Switch between different versions
+sudo update-alternatives --config python
+
+#select the number of python you want then enter
+python --version
+
+# Creating virtual environments with different versions of python
+#if venv package for that version is not installed already
+sudo apt install pythonX.x-venv
+python -m venv venv
+source venv/bin/activate
+python --version
