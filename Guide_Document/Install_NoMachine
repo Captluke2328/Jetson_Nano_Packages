@@ -1,0 +1,12 @@
+# VNC in Jetson Nano is so slow
+# to solve this, nomachine is recommend.
+# in this guide, i'm going to show on how to install nomachine as follow:
+
+1. See this website for details : https://automaticaddison.com/how-to-set-up-the-nvidia-jetson-nano-developer-kit/
+2. See this website to kow which armv8 package for jetson nano : https://kb.nomachine.com/AR02R01074
+3. Go to the NoMachine website and download the DEB package for ARMv8: https://www.nomachine.com/download/linux&id=30&s=ARM
+4. cd Downloads
+5. sudo dpkg -i nomachine_7.4.1_1_arm64.deb
+6. sudo shutdown -h now
+7. Download nomachine software for client (windows, mac or ubuntu) : https://www.nomachine.com/download
+8. Read this for more information : https://www.nomachine.com/getting-started-with-nomachine
