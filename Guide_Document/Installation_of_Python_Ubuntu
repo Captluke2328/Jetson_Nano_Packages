@@ -1,0 +1,14 @@
+## This userguide on how to install python on ubuntu
+
+See this link >> https://phoenixnap.com/kb/how-to-install-python-3-ubuntu (python)
+See this link >> https://linuxize.com/post/how-to-install-pip-on-ubuntu-18.04/ (pip)
+1. python --version
+2. sudo apt update
+3. sudo apt install software-properties-common
+4. sudo add-apt-repository ppa:deadsnakes/ppa
+5. sudo add-apt-repository ppa:deadsnakes/ppa
+6. sudo apt install python3.8 or 2.6
+7. python --version
+8. Install PIP 
+   a. sudo apt install python3-pip (python3)
+   b. sudo apt install python-pip (python2)
