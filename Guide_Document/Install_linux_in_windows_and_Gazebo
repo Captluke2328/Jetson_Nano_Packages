@@ -1,0 +1,47 @@
+## This Guide on how to install Ubuntu on windows 
+
+Refer to youtube video : https://www.youtube.com/watch?v=8SuERIEJJUA&ab_channel=SavvyNik
+
+1. On windows, go to "Turn Windows feature on and off" and enable "Windows subsytem for linux" OK and restart the windows
+2. Repeat above step and enable "Virtual Machine Platform" OK and restart the windows
+3. Then open windows shells or cmd as admin 
+4. Then type this command to enable wsl2 linux distribution >> wsl --set-default-version 2
+5. For first time installation, it will print "WSL2 2 requires an update to its kernel component". To solve this, we need to download and install
+   WSL2 Linux Kernel Update packagefor x64 machines.
+   
+   Please refer to this link to download this package >> https://docs.microsoft.com/en-us/windows/wsl/install-manual
+   WSL2 Package >> https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+   Download and Install !
+   
+6. Then type this command to enable wsl2 linux distribution >> wsl --set-default-version 2. Now, it should say "Operation Completed Successfully" 
+   indicating we have install WSL2
+7. Next install Ubuntu 18 Developer tools from Microsoft Store. Then setup username and password accordingly
+8. To enable Desktop environment, we will need to download VcXsrV Windows X Server. 
+   Please download at this link >> https://sourceforge.net/projects/vcxsrv/
+9. Then run ubuntu terminal from windows execute below command:
+   sudo apt-get update
+   sudo apt install xfce4
+   select gdm3 if prompt appear
+   
+10. Next, type this command in linux terminal:
+    cat /etc/resolv.conf
+    NOTE : take note on nameserver which we will use later to VcXsrv connection. This IP is referring to windows IP address
+           which can be obtained by "ipconfig" command otherwise the connection will resfuse
+    
+    Next open :
+    vi ~/.bashrc
+    and add nameserver into end of line as follow:
+    export DISPLAY=192.168.8.121:0
+    save and quite
+    source ~/.bashrc
+    
+11. On windows terminal, open Xlaunch.
+    Set setting as follow:
+    1. One window without titlebar 
+    2. Start no client
+    3. Add additional parameters for VcXsrv >> -ac
+    4. Save configuration to document
+    
+    On Ubuntu terminal, use below command to activate ubuntu terminal:
+    1. startxfce4
+           
