@@ -101,7 +101,7 @@ First run following command.
    change pymavlink version to 2.0.6, and dronecan to 1.0.14
    
    Modify as follow:
-   pymavlink==2.0.6
+   pymavlink==2.4.33
    dronecan==1.0.14
    
    Once this step completed you're safe to run SITL installation.
