@@ -59,3 +59,55 @@ vehicle = connect(connection_string,wait_ready = True)
 print("Virtual Copter is Ready !")
 
 Tips : Refer to page ardupilot.org/mavproxy/docs/gettingstarted/quickstart.html
+
+
+
+################################### New Update on how to Install SITL in Ubuntu (Virtualbox, WISL, Ubuntu Desktop ###########################################
+This userguide tell on how to install SITL in Ubuntu 18 either it from Virtualbox, WISL windows installation or Ubuntu desktop
+
+First run following command.
+1. sudo apt-get update
+2. sudo apt-get upgrade
+3. Next we're going to install python2.7
+  To install python2.7, run following command:
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt install software-properties-common
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  sudo apt install python2 --> Which will download python2.7
+  
+  Once completed run python to check if python2.7 is installed
+  python --version
+  
+4. Next we're going to install python 2 pip. To install pip, use following command
+  curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py # Fetch get-pip.py for python 2.7 
+  sudo python get-pip.py
+  pip --version
+  
+  Once completed run velow command to to determine if installed pip is refer to python 2.7
+  whereis pip --> 
+  
+5. Next we're going to install python 3 pip. To install pip, use following command
+   sudo apt-get update
+   sudo apt install python3-pip
+   
+   Once completed run python to check if pip installed pip is refer to python 3.6
+   whereis pip
+   
+   
+6. Before installing SITL, modify following line accordingly
+
+   In ./Tools/environment_install/install-prereqs-ubuntu.sh
+   change pymavlink version to 2.0.6, and dronecan to 1.0.14
+   
+   Modify as follow:
+   pymavlink==2.0.6
+   dronecan==1.0.14
+   
+   Once this step completed you're safe to run SITL installation.
+
+
+   
+  
+   
+   
