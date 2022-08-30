@@ -44,4 +44,7 @@ Refer to youtube video : https://www.youtube.com/watch?v=8SuERIEJJUA&ab_channel=
     
     On Ubuntu terminal, use below command to activate ubuntu terminal:
     1. startxfce4
+    
+#### Update for Gazebo ####
+ps -x | grep gazebo --> To find process ID name "gazebo"
            
