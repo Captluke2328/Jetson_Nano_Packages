@@ -46,6 +46,21 @@ from dronekit import *
 ''' Using SITL connection '''
 #connection_string = '127.0.0.1:14550'
 
+'''Using SiTL Connection from  different computer - This IP address below refer to receiver device for example RPI 
+This IP address is based on given ZeroTier IP address. Here we forwarded sim_vehicle output from computer A to computer B
+
+Example:
+1. Open SITL from my desktop and put following as follow 
+   This IP address is referring to RPI or our Drone
+
+   sim_vehicle.py --console --map --out 192.168.195.190:14553
+   
+2. On RaspberryPi replace '127.0.0.1:14550' with above address - See example below
+   This 127.0.0.1:14550 used only for local SITL in local computer.
+   
+'''
+connection_string = '192.168.195.190:14553'
+
 '''Using port forwarding from MavProxy'''
 #connection_string = '10.60.216.198:14550'
 
