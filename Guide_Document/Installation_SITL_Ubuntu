@@ -47,6 +47,10 @@ mavproxy.py --master=/dev/ttyUSB0,57600
 mavproxy.py --master=udp:127.0.0.1:14550
 mavproxy.py --master=tcp:0.0.0.0:14550
 
+If connecting to a remote IP address, the udpout or tcpout arguments should be used:
+mavproxy.py --master=udpout:10.10.1.1:14550
+mavproxy.py --master=tcpout:10.10.1.1:14550
+
 NOTE : To run python script use port forwarded udp (see line 44 below to connect into MAVProxy as follow:
 connect_copter.py
 from dronekit import *
