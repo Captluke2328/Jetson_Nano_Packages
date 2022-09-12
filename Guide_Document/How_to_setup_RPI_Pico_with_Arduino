@@ -1,0 +1,18 @@
+## This userguide explain on how to setup Raspberry PiCo with Arduino IDE.
+
+1. See this link for details : https://www.hackster.io/LithiumION/program-raspberry-pi-pico-using-arduino-ide-6efd43
+2. Open Arduino IDE and add this link into Preferences Section : https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+
+3. Then go to tools --> Board Managers --> Search for PiCO --> Then download PiCO library
+   a. Arduino Mbed OS RP2040 Boards By Arduino
+   b. Raspberry Pi Pico/RP2040
+
+4. Then press BOOTSEL button and plug the USB to your PC. Pico will appear as mass storage device.
+
+5. From Arduino IDE, example section, upload any sketch to PiCO. I'm using Blink sketch or empty sketch. Don't worry, because port is not 
+   available for the first time. Don't panic, just click to upload the sketch.
+
+6. First time compilation will take some time due to prameture drivers. But after some time the new "Com (Raspberry Pi Pico)" will be installed.
+
+7. It will no longer appear as mass storage unit and the COM port is now available.
+8. Next longer select BOOTSEL button after this.
