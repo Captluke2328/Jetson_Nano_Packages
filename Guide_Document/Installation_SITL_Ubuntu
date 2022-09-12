@@ -39,6 +39,13 @@ $ mavproxy.py --master=/dev/ttyACM0 --out=udp:10.60.216.198:14550               
 
 $ mavproxy.py --master=/dev/ttyTHS1,921600                                                         (Using Uart Tx RX of Pixhawk without port forwarding)
 $ mavproxy.py --master=/dev/ttyTHS1,921600 --out=udp:10.60.216.198:14550                           (Using Uart Tx Rx of Pixhawk with port forwarding)
+mavproxy.py --master=/dev/ttyUSB0
+mavproxy.py --master="com14"
+mavproxy.py --master=tcp:192.168.1.1:14550
+mavproxy.py --master=udp:192.168.1.1:14550 --master=/dev/ttyUSB0
+mavproxy.py --master=/dev/ttyUSB0,57600
+mavproxy.py --master=udp:127.0.0.1:14550
+mavproxy.py --master=tcp:0.0.0.0:14550
 
 NOTE : To run python script use port forwarded udp (see line 44 below to connect into MAVProxy as follow:
 connect_copter.py
