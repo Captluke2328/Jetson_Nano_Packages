@@ -39,17 +39,21 @@ $ mavproxy.py --master=/dev/ttyACM0 --out=udp:10.60.216.198:14550               
 
 $ mavproxy.py --master=/dev/ttyTHS1,921600                                                         (Using Uart Tx RX of Pixhawk without port forwarding)
 $ mavproxy.py --master=/dev/ttyTHS1,921600 --out=udp:10.60.216.198:14550                           (Using Uart Tx Rx of Pixhawk with port forwarding)
-mavproxy.py --master=/dev/ttyUSB0
-mavproxy.py --master="com14"
-mavproxy.py --master=tcp:192.168.1.1:14550
-mavproxy.py --master=udp:192.168.1.1:14550 --master=/dev/ttyUSB0
-mavproxy.py --master=/dev/ttyUSB0,57600
-mavproxy.py --master=udp:127.0.0.1:14550
-mavproxy.py --master=tcp:0.0.0.0:14550
+$ mavproxy.py --master=/dev/ttyUSB0
+$ mavproxy.py --master="com14"
+$ mavproxy.py --master=tcp:192.168.1.1:14550
+$ mavproxy.py --master=udp:192.168.1.1:14550 --master=/dev/ttyUSB0
+$ mavproxy.py --master=/dev/ttyUSB0,57600
+$ mavproxy.py --master=udp:127.0.0.1:14550
+$ mavproxy.py --master=tcp:0.0.0.0:14550
 
 If connecting to a remote IP address, the udpout or tcpout arguments should be used:
-mavproxy.py --master=udpout:10.10.1.1:14550
-mavproxy.py --master=tcpout:10.10.1.1:14550
+$mavproxy.py --master=udpout:10.10.1.1:14550
+$mavproxy.py --master=tcpout:10.10.1.1:14550
+
+However, i've spend a lot of time to debug this on how to connect MAVPROXY to Mission Planner. Please use below command to solve this.
+$ mavproxy.exe --master tcp:127.0.0.1:5760 --out udp:127.0.0.1:14550
+Here we enable tcp connection in cygwin and then forward Mavlink data to mission planner using UDP protocol
 
 NOTE : To run python script use port forwarded udp (see line 44 below to connect into MAVProxy as follow:
 connect_copter.py
