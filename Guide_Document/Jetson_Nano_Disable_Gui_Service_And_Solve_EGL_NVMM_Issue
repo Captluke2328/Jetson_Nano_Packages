@@ -1,0 +1,25 @@
+## This userguide on how to disable GUI and some RAM in Jetson Nano in console mode ##
+
+#!/bin/bash
+
+# Disable GUI to free up more RAM
+sudo systemctl set-default multi-user
+
+# Disable ZRAM
+sudo systemctl disable nvzramconfig.service
+
+# Default to Max-N power mode
+sudo nvpmodel -m 0
+
+
+## In my previous project "Autonomous Human Follower Robot". I have an issue with
+[gstreamer] gstBufferManager -- failed to map EGLImage from NVMM buffer.
+
+To solve this problem, run following command.
+
+cd /path/to/your/jetson-inference/build
+cmake -DENABLE_NVMM=OFF ../
+make
+sudo make install
+
+The NVMM issue will solved.
