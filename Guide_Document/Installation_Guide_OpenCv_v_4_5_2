@@ -1,0 +1,104 @@
+## This is userguide on how to install OpenCV v4.5.2 ##
+
+First see this userguide
+1. https://automaticaddison.com/how-to-install-opencv-4-5-on-nvidia-jetson-nano/
+2. https://automaticaddison.com/how-to-set-up-the-nvidia-jetson-nano-developer-kit/#Create_a_Swap_File
+3. https://qengineering.eu/install-opencv-4.5-on-jetson-nano.html
+
+PS : This is github page for Image that contain opencv, tensorflow, pythorch software installed. Just download this
+package and flash it into memory card. -- > https://github.com/Qengineering/Jetson-Nano-image
+
+OK.....Let's Start
+
+1. To install OpenCv v4.5.2 we will install the dependcies as follow:
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential cmake git unzip pkg-config
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install libgtk2.0-dev libcanberra-gtk*
+sudo apt-get install python3-dev python3-numpy python3-pip
+sudo apt-get install libxvidcore-dev libx264-dev libgtk-3-dev
+sudo apt-get install libtbb2 libtbb-dev libdc1394-22-dev
+sudo apt-get install libv4l-dev v4l-utils
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt-get install libavresample-dev libvorbis-dev libxine2-dev
+sudo apt-get install libfaac-dev libmp3lame-dev libtheora-dev
+sudo apt-get install libopencore-amrnb-dev libopencore-amrwb-dev
+sudo apt-get install libopenblas-dev libatlas-base-dev libblas-dev
+sudo apt-get install liblapack-dev libeigen3-dev gfortran
+sudo apt-get install libhdf5-dev protobuf-compiler
+sudo apt-get install libprotobuf-dev libgoogle-glog-dev libgflags-dev
+
+2. To save some RAM let's switch to different dekstop environment. Type:
+"$DESKTOP_SESSION" to reboot to a login screen
+3. On the login screen, click gear icon to "Sign In" and select LXDE. Type password and sign in.
+4. Then reboot again using this command "sudo reboot"
+5. Open terminal window in Nano and type command "echo $XDG_CURRENT_DESKTOP" to see which desktop environment i'm using
+6. write "free" to see how much memory we have.
+7. Next, we will switch dekstop environment from gdm3 to lightdm to save more memory. To do so, run this command "sudo dpkg-reconfigure lightdm". Select lightdm.
+8. run "sudo reboot" for changes to take effect
+8. then run "htop" command. You will see memory consumption is lesser. We will need more memory for our run later
+
+9. OK next .... we will install opencv4.5.2. Visit this link for details instruction -> https://qengineering.eu/install-opencv-4.5-on-jetson-nano.html
+10. run "sudo apt-get update" and "sudo apt-get upgrade" again.
+11. Once done, run "sudo apt-get install dphys-swapfile" to download swap file. We will need increase the swap size.
+12. Once done, run "sudo vi /sbin/dphys-swapfile" --> and edit this line "CONF_MAXSWAP=2048" to "CONF_MAXSWAP=4096". Save and quit
+13. Next, run "sudo vi /etc/dphys-swapfile" --> and change "CONF_SWAPSIZE" to "CONF_SWAPSIZE=6074". You will need to uncomment the line first. Save and quit
+14. Once done, run "sudo reboot" and run "free" to ensure the swap memory is increased - Please ensure the size is increase !
+15. Next we will install openCV using script only instead of builidng from source. To do this see below step:
+
+....Installation Time......
+$free -m
+$ wget https://github.com/Qengineering/Install-OpenCV-Jetson-Nano/raw/main/OpenCV-4-5-2.sh
+$ sudo chmod 755 ./OpenCV-4-5-2.sh
+$ ./OpenCV-4-5-2.sh
+
+---The installation will take a hour about 2 hours..so better take ur lunch first !
+# once the installation is done...
+$ rm OpenCV-4-5-2.sh
+# remove the dphys-swapfile now
+$ sudo /etc/init.d/dphys-swapfile stop
+$ sudo apt-get remove --purge dphys-swapfile
+# just a tip to save an additional 275 MB
+$ sudo rm -rf ~/opencv
+$ sudo rm -rf ~/opencv_contrib
+
+....Checking.....
+Now it is time to check your installation. It can be done in a fast way by using Python. 
+Use the commands shown in the screen dump below. It all speaks for itself.
+$ python3
+$ import cv2
+$ cv2.__version__
+
+NOTE:
+OpenCV will be installed to the /usr directory, all files will be copied to following locations:
+/usr/bin - executable files
+/usr/lib/aarch64-linux-gnu - libraries (.so)
+/usr/lib/aarch64-linux-gnu/cmake/opencv4 - cmake package
+/usr/include/opencv4 - headers
+/usr/share/opencv4 - other files (e.g. trained cascades in XML format)
+
+....Cleaning.....
+If you are in shortage of disk space, you may consider deleting the ~/opencv and ~/opencv_contrib folders.
+In any case, delete the SD memory swap software installed at the beginning of this manual.
+
+# remove the dphys-swapfile now
+$ sudo /etc/init.d/dphys-swapfile stop
+$ sudo apt-get remove --purge dphys-swapfile
+# free the allocated memory
+$ sudo rm /var/swap
+# just a tip to save an additional 275 MB
+$ sudo rm -rf ~/opencv
+$ sudo rm -rf ~/opencv_contrib
+
+.....JTOP.....
+You probably already have jtop installed. If not, you should do it right away. An excellent debug tool by Raffaello
+Bonghi especially made for the Jetson family. It gives you all the information you are looking for during development,
+just like htop. You can install it with the following command.
+$ sudo -H pip install -U jetson-stats
+$ sudo reboot
+# start the app with the simple command
+$ jtop
+
+Here we can check if Cuda is enabled under "Info" section
