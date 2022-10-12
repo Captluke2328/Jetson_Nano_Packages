@@ -1,0 +1,12 @@
+### This userguide on how to install Arduino to Jetson Nano ##
+See this link for reference : https://jetsonhacks.com/2014/08/28/nvidia-jetson-tk1-arduino-uno/
+
+$ git clone https://github.com/JetsonHacksNano/installArduinoIDE
+
+$ cd installArduinoIDE
+
+$ ./installArduinoIDE.sh
+
+After a couple of minutes, the installer script will ask you to reboot the Jetson.
+There is a desktop shortcut to launch the Arduino IDE (you can also lauch it from the Ubuntu Dash).
+After selecting your board and port from the tools menu, you’re ready to go!
