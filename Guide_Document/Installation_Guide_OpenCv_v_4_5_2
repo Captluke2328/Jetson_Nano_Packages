@@ -102,3 +102,8 @@ $ sudo reboot
 $ jtop
 
 Here we can check if Cuda is enabled under "Info" section
+
+----To Check Build Version----
+python3
+import cv2
+print(cv2.getBuildInformation())
