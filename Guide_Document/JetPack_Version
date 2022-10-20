@@ -3,3 +3,9 @@
 sudo apt-cache show nvidia-jetpack
 
 I'm using this jetpack version for all of the project.
+
+Package: nvidia-jetpack
+Version: 4.6.1-b110
+Architecture: arm64
+Maintainer: NVIDIA Corporation
+Installed-Size: 194
