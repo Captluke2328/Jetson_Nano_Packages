@@ -1,0 +1,5 @@
+## This command used to check the Jetpack version ##
+
+sudo apt-cache show nvidia-jetpack
+
+I'm using this jetpack version for all of the project.
