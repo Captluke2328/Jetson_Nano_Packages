@@ -1,0 +1,16 @@
+## Python Note
+
+to list down the python  version command
+a. py -3.9 --version
+b. py -3.11 --version
+
+to list the pip based on different python version
+a. py -3.9 -m pip list
+b. py -3.11 -m pip list
+
+to migrate old pip package to new pip environment considering my python version
+change from 3.9 to 3.11
+
+a. py -3.9 -m pip freeze > requirements.txt
+b. cp ./requirements.txt /path/to/new_project
+c. py -3.11 -m pip install -r ./requirements.txt
