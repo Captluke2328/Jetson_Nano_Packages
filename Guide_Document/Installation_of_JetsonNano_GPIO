@@ -1,0 +1,46 @@
+## Here we're going to setup and enable GPIO pin configuration for Jetson Nano ##
+# Refer to this link for information : https://automaticaddison.com/how-to-blink-an-led-using-nvidia-jetson-nano/
+
+1. Open a terminal, and type the following command - sudo pip3 install Jetson.GPIO
+2. If that command above doesn’t work, type the following command - sudo pip install Jetson.GPIO
+3. Reconfigure security permissions. Instead of your_user_name, I used jlukas, which is my username.
+   sudo groupadd -f -r gpio
+   sudo usermod -a -G gpio your_user_name
+4. Reboot the computer - sudo reboot
+5. Let’s check to see if the library is fully setup. Run - python3 in terminal and import following library.
+   >>> import Jetson.GPIO as GPIO
+   >>> GPIO.JETSON_INFO
+   >>> GPIO.VERSION
+   
+## Example ##
+Let’s create a program to blink the LED. and call it as gedit gpiodemo.py
+
+vi gpiodemo.py
+
+# GPIO library
+import Jetson.GPIO as GPIO
+ 
+# Handles time
+import time 
+ 
+# Pin Definition
+led_pin = 7
+ 
+# Set up the GPIO channel
+GPIO.setmode(GPIO.BOARD) 
+GPIO.setup(led_pin, GPIO.OUT, initial=GPIO.HIGH) 
+ 
+print("Press CTRL+C when you want the LED to stop blinking") 
+ 
+# Blink the LED
+while True: 
+  time.sleep(2) 
+  GPIO.output(led_pin, GPIO.HIGH) 
+  print("LED is ON")
+  time.sleep(2) 
+  GPIO.output(led_pin, GPIO.LOW)
+  print("LED is OFF")
+
+run python3 gpiodemo.py
+
+## Enjoy !!
