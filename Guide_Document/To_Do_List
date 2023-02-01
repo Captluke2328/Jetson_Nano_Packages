@@ -1,0 +1,36 @@
+## TO DO LIST ##
+
+3D printer
+a. Setup printer and try to print (Cura, SITL) and read manual
+
+Jetson Nano
+a. Try the command to use enable auto login in console mode.
+   *sudo vi /etc/gdm3/custom.conf and setup as follow:
+   *AutomaticLoginEnable=true
+    AutomaticLogin=jlukas
+   
+   Hope it works in console mode.
+   
+b. Change the camera cable from 1metre to 0.5m
+
+c. Autonomous Human Follower Drone 
+   * My concern with camera and drone mobility.
+
+Raspberry Pi
+a. Wireless Keyboard Control Drone
+   * Is it possible to change from Guided Mode to Loiter mode. Would it Crash (?)
+   * Integrate Ultrasonic Sensor for obstacle detection
+   * Enable Buzzer in the Script to indicate the script is running
+   * 3D Print the Ultra Sonic sensor
+
+
+Video
+a. Wireless Keyboard Control Drone
+   * Add text 
+   * Change color 
+   * First video quite too fast for  drone introduction - Me with yellow shirt
+   * Insert label for component
+   * Insert label for direction
+   * Insert subtitle
+   * Cut unecessary video like our and we
+   * Landscape video change to other better video
